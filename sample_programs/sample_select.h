@@ -32,10 +32,7 @@
 //  0 : sample_00_led_rtc_analogin     DigitalOut, InterruptIn, RTC, Timer and AnalogIn sample
 //  1 : sample_01_flash_write          FlashAPI sample
 //  2 : sample_02_ssif_loop_back       SSIF loop back sample
-//  3 : sample_03_spdif_loop_back      SPDIF loop back sample
 //  4 : sample_04_ssif_wav_playback    SSIF wav playback sample (use USB memory or SD card)
-//  5 : sample_05_spdif_wav_playback   SPDIF wav playback sample (use USB memory or SD card)
-//  6 : sample_06_lcd_touch_jcu        LCD, Touch panel and JCU sample (use USB memory or SD card)
 //  7 : sample_07_usb_func_serial      USBSerial (CDC) sample
 //  8 : sample_08_usb_func_mouse       USBMouse sample
 //  9 : sample_09_usb_func_keyboard    USBKeyboard sample
@@ -51,5 +48,7 @@
 // 19 : sample_19_mipi_drp_diplayapp   MIPI, DRP and USBSerial (CDC) sample (use "DisplayApp")
 // 20 : sample_20_drp_dynamic_loading  DRP Dynamic Loading Sample
 // 21 : sample_21_deep_standby_alarm   Deep standby and RTC alarm sample
+// 22 : sample_22_hdmi_disp_ssif       HDMI output and SSIF wav playback Sample
+// 23 : sample_23_mipi_hdmi            HDMI output and MIPI Sample
 
 #endif // SAMPLE_SELECT_H
