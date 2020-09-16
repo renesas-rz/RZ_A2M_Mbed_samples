@@ -40,9 +40,9 @@ int main() {
     while (1) {
         for(int i = 48; i < 83; i++) {     // send some messages!
             midi.write(MIDIMessage::NoteOn(i));
-            wait(0.25);
+            ThisThread::sleep_for(0.25);
             midi.write(MIDIMessage::NoteOff(i));
-            wait(0.5);
+            ThisThread::sleep_for(0.5);
         }
     }
 }

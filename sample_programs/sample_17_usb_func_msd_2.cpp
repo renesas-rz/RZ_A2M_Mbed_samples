@@ -100,7 +100,7 @@ static void usb_callback_func(void) {
 
 static void msd_task(void) {
     while (true) {
-        usb_sem.wait();
+        usb_sem.acquire();
         if (p_usb != NULL) {
             p_usb->process();
         }

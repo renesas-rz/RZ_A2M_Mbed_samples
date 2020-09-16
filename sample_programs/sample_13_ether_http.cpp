@@ -43,11 +43,12 @@ void dump_response(HttpResponse* res) {
     for (size_t ix = 0; ix < res->get_headers_length(); ix++) {
         printf("\t%s: %s\n", res->get_headers_fields()[ix]->c_str(), res->get_headers_values()[ix]->c_str());
     }
-    printf("\nBody (%d bytes):\n\n%s\n", res->get_body_length(), res->get_body_as_string().c_str());
+    printf("\nBody (%ld bytes):\n\n%s\n", res->get_body_length(), res->get_body_as_string().c_str());
 }
 
 int main() {
     NetworkInterface* network = &eth;
+    SocketAddress address;
 
     printf("\nConnecting...\n");
     int ret = network->connect();
@@ -57,9 +58,9 @@ int main() {
     }
     printf("Success\n\n");
     printf("MAC: %s\n", network->get_mac_address());
-    printf("IP: %s\n", network->get_ip_address());
-    printf("Netmask: %s\n", network->get_netmask());
-    printf("Gateway: %s\n", network->get_gateway());
+    printf("IP: %s\n" , NSAPI_ERROR_OK == network->get_ip_address(&address) ? address.get_ip_address() : "NULL");
+    printf("Netmask: %s\n", NSAPI_ERROR_OK == network->get_netmask(&address) ? address.get_ip_address() : "NULL");
+    printf("Gateway: %s\n", NSAPI_ERROR_OK == network->get_gateway(&address) ? address.get_ip_address() : "NULL");
 
     // Do a GET request to httpbin.org
     {
@@ -98,7 +99,7 @@ int main() {
         delete post_req;
     }
 
-    wait(osWaitForever);
+    ThisThread::sleep_for(osWaitForever);
 }
 
 #endif

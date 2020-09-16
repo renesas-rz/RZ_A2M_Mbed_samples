@@ -126,7 +126,7 @@ int main(void) {
     InterruptIn button(USER_BUTTON0);
     button.fall(&button_fall);
 
-    wait(osWaitForever);
+    ThisThread::sleep_for(osWaitForever);
 }
 
 #endif

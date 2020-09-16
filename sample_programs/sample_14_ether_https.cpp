@@ -120,6 +120,7 @@ void dump_response(HttpResponse* res) {
 
 int main() {
     NetworkInterface* network = &eth;
+    SocketAddress address;
 
     printf("\nConnecting...\n");
     int ret = network->connect();
@@ -129,9 +130,9 @@ int main() {
     }
     printf("Success\n\n");
     printf("MAC: %s\n", network->get_mac_address());
-    printf("IP: %s\n", network->get_ip_address());
-    printf("Netmask: %s\n", network->get_netmask());
-    printf("Gateway: %s\n", network->get_gateway());
+    printf("IP: %s\n" , NSAPI_ERROR_OK == network->get_ip_address(&address) ? address.get_ip_address() : "NULL");
+    printf("Netmask: %s\n", NSAPI_ERROR_OK == network->get_netmask(&address) ? address.get_ip_address() : "NULL");
+    printf("Gateway: %s\n", NSAPI_ERROR_OK == network->get_gateway(&address) ? address.get_ip_address() : "NULL");
 
     // GET request to developer.mbed.org
     {
@@ -171,7 +172,7 @@ int main() {
         delete post_req;
     }
 
-    wait(osWaitForever);
+    ThisThread::sleep_for(osWaitForever);
 }
 
 #endif

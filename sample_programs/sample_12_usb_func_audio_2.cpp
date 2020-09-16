@@ -63,7 +63,7 @@ void mic_task(USBAudio * p_usb_audio) {
     }
 
     while (1) {
-        mic_in_sem.wait();
+        mic_in_sem.acquire();
         p_buf = audio_in_buff[audio_in_idx++];
         if (audio_in_idx >= AUDIO_IN_BUFF_NUM) {
             audio_in_idx = 0;

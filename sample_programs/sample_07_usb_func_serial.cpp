@@ -36,7 +36,7 @@
 int main() {
     USBSerial serial;
 
-    wait(0.1);
+    ThisThread::sleep_for(0.1);
     serial.printf("I am a virtual serial port\r\n");
 
     // echoback

@@ -256,7 +256,7 @@ int main(void) {
     // Start DRP task
     drpTask.start(callback(drp_task));
 
-    wait(osWaitForever);
+    ThisThread::sleep_for(osWaitForever);
 }
 
 #endif

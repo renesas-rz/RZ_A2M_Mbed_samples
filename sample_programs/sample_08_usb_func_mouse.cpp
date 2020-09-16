@@ -46,7 +46,7 @@ int main() {
 
         mouse.move(x, y);
         angle += 3;
-        wait(0.001);
+        ThisThread::sleep_for(0.001);
     }
 }
 
